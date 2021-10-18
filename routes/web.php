@@ -16,3 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/contacto', function(){
+    return "formulario de contacto";
+});
+
+Route::get('/productos/{producto?}/{precio?}', function($producto="Bebida", $precio=null){
+    return view('productos', array(
+        'producto' => $producto,
+        'precio' => $precio
+    ));
+})->where([
+    'producto' => '[A-Za-z]+',
+    'precio' => '[0-9]+'
+]);
+
+Route::match(['get','post'],'/hola-mundo', function (){
+    return "Hola Victor";
+});
