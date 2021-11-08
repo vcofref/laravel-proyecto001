@@ -34,3 +34,20 @@ Route::get('/productos/{producto?}/{precio?}', function($producto="Bebida", $pre
 Route::match(['get','post'],'/hola-mundo', function (){
     return "Hola Victor";
 });
+
+Route::get('/listado/{titulo}', function($titulo){
+    return view('listado')
+    ->with('titulo', $titulo)
+    ->with('frutas', array('Naranja', 'Pera', 'Manzana', 'Frutilla'));
+});
+
+Route::get('/verduras','VerdurasController@index');
+Route::get('/verduras/editar','VerdurasController@editarVerdura');
+Route::get('/verduras/eliminar', [
+    'uses' => 'VerdurasController@eliminarVerdura',
+    'as' => 'eliminarVerdura'
+]);
+
+Route::get('/verduras/agregar','VerdurasController@agregarVerdura');
+
+Route::post('guardarFormulario','VerdurasController@guardarVerdura');
