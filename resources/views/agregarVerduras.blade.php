@@ -5,7 +5,6 @@
 @stop
 @section('content')
 <hr>
-    
 
 <div class="container">
     <div class="row">
@@ -24,9 +23,6 @@
         </div>
     </div>
 </div>
-
-
-
 <hr>
 @stop
 @section('footer')
